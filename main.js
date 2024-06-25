@@ -13,8 +13,11 @@ let operando_b = "";
 for (let i = 0; i < numeros.length; i++) {
     numeros[i].addEventListener("click", () => {
         if (operacion === ""){
-            operando_a += numeros[i].innerText;
-            pantalla.innerText += numeros[i].innerText;
+            //if (!(operando_a.includes("."))){
+                operando_a += numeros[i].innerText;
+                pantalla.innerText += numeros[i].innerText;
+            //}
+            
             //console.log(operando_a)
         }else{
             if (operando_b === ""){
@@ -83,3 +86,14 @@ tecla_c.addEventListener("click", () => {
     pantalla.innerText = "";
 })
 
+del.addEventListener("click", () =>{
+    if(operacion === ""){
+         operando_a = operando_a.slice(0, -1);
+         pantalla.innerText = operando_a;
+         console.log(operando_a);
+    }else{
+        operando_b = operando_b.slice(0, -1);
+        pantalla.innerText = operando_b;
+        console.log(operando_b);
+    }
+})
